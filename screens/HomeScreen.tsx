@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {themeColors} from '../theme';
 import { StatusBar } from 'expo-status-bar';
-import { categories, coffeeItems } from '../constants';
+import { categories, CItems } from '../constants';
 import Carousel from 'react-native-snap-carousel';
-import CoffeeCard from '../components/coffeeCard';
+import card from '../components/card';
 import { BellIcon, MagnifyingGlassIcon } from 'react-native-heroicons/outline'
 import { MapPinIcon } from 'react-native-heroicons/solid'
 
@@ -31,7 +31,7 @@ export default function HomeScreen() {
           <View className="flex-row items-center space-x-2">
             <MapPinIcon size="25" color={themeColors.bgLight} />
             <Text className="font-semibold text-base">
-              New York, NYC
+              Restro Delight
             </Text>
           </View>
           <BellIcon size="27" color="black" />
@@ -72,13 +72,13 @@ export default function HomeScreen() {
           
       </SafeAreaView>
 
-      {/* coffee cards */}
+      {/* cards */}
       <View className={`overflow-visible flex justify-center flex-1 ${ios? 'mt-10':''}`}>
         <View>
           <Carousel
             containerCustomStyle={{overflow: 'visible'}}
-            data={coffeeItems}
-            renderItem={({item})=> <CoffeeCard item={item} />}
+            data={CItems}
+            renderItem={({item})=> <card item={item} />}
             firstItem={1}
             loop={true}
             inactiveSlideScale={0.75}
